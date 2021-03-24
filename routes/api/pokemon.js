@@ -29,6 +29,7 @@ router.put(
   '/:id',
   pokemonValidations.validateUpdate,
   asyncHandler(async function (req, res) {
+    console.log(req.body)
     const id = await PokemonRepository.update(req.body);
     const pokemon = await PokemonRepository.one(id);
     return res.json(pokemon);
